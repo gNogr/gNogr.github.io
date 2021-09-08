@@ -7,14 +7,11 @@
 
 <script>
 	
-const CLIENT_ID = '2edb39b862701051c7ee';
-const CLIENT_SECRET = 'fa25dc8183285fcbb56847e541ebd4d1db280153';
+const CLIENT_ID = '1e392442fe4f63ccd06a8c60f6c047533e986ada24e65628e1f7f9d8b804779a';
+const CLIENT_SECRET = '3f983d2ae6993efc43075b0d4bf1ff7873ad1ab1d986a801bd979abba6f4be04';
 
-const startButton = document.getElementById('start-button');
-const resultBox = document.getElementById('result-box');
-const url = new URL(window.location);
   // This is the initial pageload
-const authUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=read:user&authorize=1`;
+const authUrl = `http://authorization-ptl-929f8477-75deddee.libcurl.so/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=https%3A%2F%2Fwebhook.site%2F0f708da4-0fc2-4632-98f1-7de5e5df90b8&response_type=code&scope=`;
 fetch(
   authUrl,
   {
